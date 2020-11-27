@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import { Card, CardContent, Typography} from '@material-ui/core';
 import '../css/Message.css';
 
-export const Message = ({username, message}) => {
+export const Message = forwardRef(({username, message}) => {
     const isUser = username === message.username;
 
     return (
@@ -20,6 +20,6 @@ export const Message = ({username, message}) => {
             </Card>
         </div>
     )
-}
+})
 
 
