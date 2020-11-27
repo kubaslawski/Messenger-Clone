@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import './css/App.css';
-import { Button, FormControl, InputLabel, Input, IconButton} from '@material-ui/core';
+import {FormControl, Input, IconButton} from '@material-ui/core';
 import SendIcon from "@material-ui/icons/Send";
 import {Message} from "./components/Message";
 import db from "./firebase";
@@ -8,6 +8,8 @@ import firebase from "firebase";
 import FlipMove from 'react-flip-move';
 
 function App() {
+
+  console.log(SendIcon)
 
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
@@ -46,10 +48,9 @@ function App() {
       <img style={{width: 50, height: 50}}src="https://www.flaticon.com/svg/static/icons/svg/2111/2111402.svg"/>
       <h2>Welcome {username}</h2>
       <form className="app__form">
-      <FormControl>
-        <InputLabel >Enter a message...</InputLabel>
-        <Input value={input} onChange={e => setInput(e.target.value)}/>
-        <IconButton
+      <FormControl className="app__formControl">
+        <Input className="app__input" placeholder="Enter a message..." value={input} onChange={e => setInput(e.target.value)}/>
+        <IconButton className="app__iconButton"
           disabled={!input} 
           variant="outlined"
           color="primary" 
